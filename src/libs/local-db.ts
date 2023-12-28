@@ -4,7 +4,7 @@ interface Topic {
   desc: string;
 }
 
-let topicsData = [
+let topicsData: Topic[] = [
   {
     id: "1",
     title: "html",
@@ -29,12 +29,12 @@ const createTopic = (topic: Topic) => {
 
 // read all
 const getAllTopics = () => {
-  return topicsData || [];
+  return topicsData || null;
 };
 
 // read one
 const getOneTopicById = (id: string) => {
-  const topic = topicsData && topicsData.length > 0 ? topicsData.find((item: Topic) => item.id === id) : {};
+  const topic = topicsData && topicsData.length > 0 ? topicsData.find((item: Topic) => item.id === id) : null;
   return topic;
 };
 
@@ -42,7 +42,8 @@ const getOneTopicById = (id: string) => {
 const updateOneTopicById = (id: string, updateTopic: Topic) => {
   if (topicsData && topicsData.length > 0) {
     const topics = topicsData.filter((item: Topic) => item.id !== id);
-    topicsData.push(...topics, updateTopic);
+    const updatedTopicsData = [...topics, updateTopic];
+    topicsData = updatedTopicsData;
   }
 };
 
@@ -50,7 +51,7 @@ const updateOneTopicById = (id: string, updateTopic: Topic) => {
 const deleteOneTopicById = (id: string) => {
   if (topicsData && topicsData.length > 0) {
     const topics = topicsData.filter((item: Topic) => item.id !== id);
-    topicsData.push(...topics);
+    topicsData = topics;
   }
 };
 
@@ -59,4 +60,4 @@ const deleteAllTopic = () => {
   topicsData = [];
 };
 
-export { createTopic, getAllTopics, getOneTopicById, updateOneTopicById, deleteOneTopicById, deleteAllTopic };
+export { createTopic, getAllTopics, getOneTopicById, deleteOneTopicById, deleteAllTopic, updateOneTopicById };

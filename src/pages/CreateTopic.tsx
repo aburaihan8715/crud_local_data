@@ -1,16 +1,39 @@
+import { FormEvent, useRef } from "react";
+import { createTopic } from "../libs/local-db";
+import { useNavigate } from "react-router-dom";
+
 const CreateTopic = () => {
+  const titleRef = useRef<HTMLInputElement | null>(null);
+  const descRef = useRef<HTMLInputElement | null>(null);
+  const navigate = useNavigate();
+
+  const submitHandler = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!titleRef.current?.value || !descRef.current?.value) return alert("Input should not be empty!");
+    const form = e.currentTarget;
+    const newTopic = {
+      id: Date.now().toString(),
+      title: titleRef.current.value,
+      desc: descRef.current.value,
+    };
+    // console.log(newTopics);
+    createTopic(newTopic);
+    form.reset();
+    navigate("/");
+  };
+
   return (
-    <form className="mt-8">
+    <form onSubmit={submitHandler} className="mt-8">
       <div className="flex flex-col gap-4">
         {/* topic title input */}
-        <input className="py-2 px-4 border" type="text" name="" id="" placeholder="Topic title" />
+        <input ref={titleRef} className="py-2 px-3 border rounded text-black" type="text" placeholder="Topic title" />
 
         {/* topic description input */}
-        <input className="py-2 px-4 border" type="text" name="" id="" placeholder="Topic description" />
+        <input ref={descRef} className="py-2 px-3 border rounded text-black" type="text" placeholder="Topic description" />
 
         {/* topic action button */}
-        <div className="bg-red-200 w-fit">
-          <button>submit</button>
+        <div className=" flex justify-end">
+          <button className="bg-red-600 py-2 px-3 rounded capitalize">submit</button>
         </div>
       </div>
     </form>

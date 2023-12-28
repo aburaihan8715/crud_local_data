@@ -10,7 +10,7 @@ const AppNav = () => {
           </div>
           <div className="text-xs">local data typescript</div>
         </Link>
-        <Link to={"/createTopic"} className="p-2 bg-orange-500 rounded capitalize">
+        <Link to={"/createTopic"} className="p-2 bg-red-500 rounded capitalize">
           Add topic
         </Link>
       </nav>
