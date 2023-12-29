@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { deleteOneTopicById, getAllTopics } from "../libs/local-db";
+import { deleteOneTopicById, getAllTopics } from "../libs/local-folder-db";
 import { Topic } from "../types";
 
 const Home = () => {

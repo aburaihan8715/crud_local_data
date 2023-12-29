@@ -1,5 +1,5 @@
 import { FormEvent, useRef } from "react";
-import { createTopic } from "../libs/local-db";
+import { createTopic } from "../libs/local-folder-db";
 import { useNavigate } from "react-router-dom";
 
 const CreateTopic = () => {

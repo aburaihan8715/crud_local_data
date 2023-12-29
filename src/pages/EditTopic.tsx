@@ -1,6 +1,6 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getOneTopicById, updateOneTopicById } from "../libs/local-db";
+import { getOneTopicById, updateOneTopicById } from "../libs/local-folder-db";
 import { Topic } from "../types";
 
 const EditTopic = () => {
