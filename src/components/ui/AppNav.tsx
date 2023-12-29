@@ -6,7 +6,7 @@ const AppNav = () => {
       <nav className="bg-slate-600 p-4 flex justify-between items-center rounded">
         <Link to={"/"} className="flex flex-col">
           <div className="text-2xl">
-            NE<span className="text-4xl text-orange-500">X</span>T CRUD
+            RE<span className="text-4xl text-orange-500">A</span>CT CRUD
           </div>
           <div className="text-xs">local data typescript</div>
         </Link>
